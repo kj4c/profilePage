@@ -22,7 +22,6 @@ function App() {
           <NavBar/>
         </div>
       }
-
       <div>
         <Routes>
           <Route path = '/circleProfile/' element = {<HomePage />}/>
