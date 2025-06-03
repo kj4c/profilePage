@@ -1,78 +1,101 @@
-import picture from '../assets/profilepic.jpg';
+import profile from '../assets/usual.jpg';
 import { useState } from 'react';
 import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
 import { CSSTransition } from 'react-transition-group';
-import '../styles/Homepage.css'
+import '../styles/Homepage.css';
 
 const data = [
-    {
-        id: 1,
-        title: 'Introduction',
-        content: `Hi! My name\'s Khye Jac but most people call me KJ! My profile was built based upon the design of the Circles \n App built by DevSoc. 
-        I wanted to build this website with technologies that I am not familiar with which are TailwindCSS and SVGs,
-        it took a long while to comprehend but I learnt a lot of new useful content!`
-    },
-    {
-        id: 2,
-        title: 'Age',
-        content: 'I\'m currently 18 years old! My birthday is on the 14th of November 2005, please remember to wish me!'
-    },
-    {
-        id: 3,
-        title: 'Degree and Year',
-        content: 'I am a second year currently enrolled in a Software Engineering degree.'
-    },
-    {
-        id: 4,
-        title: 'Courses I\'ve taken ',
-        content: 'COMP1511\nCOMP1521\nCOMP1531\nCOMP2521\nCOMP3311\nCOMP3121\nSENG2011\nSENG2021'
-    },
-    {
-        id: 5,
-        title: 'My experience',
-        content: `I have had experience building full stack programs through my SENG2021 course, alongside a team 
-        of 5, we were tasked with building an invoicing company which you can view <a href="https://invoice-seng2021-24t1-eggs-frontend.vercel.app/"><b><u>here</u></b></a>, 
-        (log in with the user: "khyejac" and password: "password"). I learnt a lot from this course
-        but the reason why I want to join the DevSoc program is because most of the content
-        I learnt is self taught, I am afraid that I may have missed out on some crucial introductory
-        content. I would also love to work in a team environment again and work together to create an amazing website! `
-    },
-    {
-        id: 6,
-        title: 'LinkedIn',
-        content: `Please add me <a href="https://www.linkedin.com/in/khye-jac-low-134946218/"><b><u>here</u></b></a>`
-    }
-]
+  {
+    id: 1,
+    title: 'About Me',
+    content: `Hi, I’m <b>Khye Jac Low</b>, a Software Engineering student at UNSW with a WAM of 85.0 (HD). I’m passionate about building impactful software and enjoy working across the stack. I’ve held leadership and teaching roles, and I thrive in collaborative, real-world environments.`
+  },
+  {
+    id: 2,
+    title: 'Experience',
+    content: `
+    <ul>
+      <li><b>Academic Tutor</b> @ UNSW (2025–Present): Teaching COMP2041 and SENG2021. Led sprint planning and mentored full-stack project teams.</li>
+      <li><b>Training Program Director</b> @ DevSoc (2024–Present): Ran JavaScript/React/Figma training for 30+ trainees, with 20+ mentors.</li>
+    </ul>`
+  },
+  {
+    id: 3,
+    title: 'Projects',
+    content: `
+    <ul>
+      <li><b>Eggs Invoicing:</b> React, TypeScript, Express, PostgreSQL. Nominated for Macquarie Bank Prize.</li>
+      <li><b>Propex:</b> AWS, Docker, Terraform, React. Nominated for Optiver Prize.</li>
+      <li><b>Airtable Clone:</b> T3 Stack, TanStack, PostgreSQL, Google OAuth, tRPC hooks, Vercel.</li>
+      <li><b>Competitive Programming:</b> Bootcamp + ICPC participation using C++.</li>
+    </ul>`
+  },
+  {
+    id: 4,
+    title: 'Extracurricular Activities',
+    content: `
+    <ul>
+      <li><b>CSESoc Socials Subcommittee:</b> Helped organize 20+ events for 7000+ students.</li>
+      <li><b>Training Lead @ DevSoc:</b> Led MERN project with real-time Socket.io chat.</li>
+      <li><b>Peer Mentor:</b> Supported first-year students through academic and social transition.</li>
+    </ul>`
+  },
+  {
+    id: 5,
+    title: 'Technical Skills',
+    content: `
+    <b>Languages:</b> C/C++, Python, JavaScript/TypeScript, SQL, Java, Assembly<br />
+    <b>Frameworks:</b> React, Node.js, Next.js, Express, JUnit, Material-UI<br />
+    <b>Tools:</b> AWS, Terraform, Git, GitLab CI/CD, MongoDB, Postman, Jest
+    `
+  },
+  {
+    id: 6,
+    title: 'Contact',
+    content: `
+    <b>Email:</b> lowkhyejac@gmail.com<br />
+    <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/khye-jac-low-134946218/"><u>linkedin.com/in/khye-jac-low</u></a><br />
+    <b>GitHub:</b> <a href="https://github.com/kj4c"><u>github.com/kj4c</u></a>`
+  }
+];
+
 const AboutMe = () => {
-    const [isIntroOpen, setIsIntroOpen] = useState({});
+    const initialOpenState = Object.fromEntries(data.map((section) => [section.id, true]));
+    const [isOpen, setIsOpen] = useState(initialOpenState);
 
-    const toggleIntro = (id) => {
-        setIsIntroOpen((prevState) => ({
-            ...prevState,
-            [id]: !prevState[id],
-        }));
-    };
+  const toggle = (id) => {
+    setIsOpen((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
-    return (
-        <div>
-            <div className='flex flex-col mx-50 items-center justify-center w-screen bg-secondary'>
-                <div className='p-8 animate-fadeIn'>
-                    <img className='border-solid border-8 border-primary rounded-full h-72 ' src = {picture}></img>
-                    <p className='pt-5 text-5xl font-medium'>Khye Jac Low</p>
-                </div>
+  return (
+    <div className="min-h-screen bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white">
+      <div className='flex flex-col items-center justify-center w-full bg-secondary py-10 px-6 text-center '>
+        <img className='border-8 border-primary rounded-full h-60 w-60 object-cover animate-fadeIn transition-all duration-500' src={profile} alt="Khye Jac Low" />
+        <CSSTransition in={true} appear={true} timeout={500} classNames="fade">
+          <p className='pt-5 text-4xl font-semibold transition-opacity duration-700 animate-fadeIn ease-in-out'>Khye Jac Low</p>
+        </CSSTransition>
+        <CSSTransition in={true} appear={true} timeout={800} classNames="fade">
+          <p className="text-lg transition-opacity duration-700 ease-in-out animate-fadeIn delay-200">Software Engineering Student @ UNSW</p>
+        </CSSTransition>
+      </div>
+      <div className="px-6 md:px-20 py-10 space-y-6">
+        {data.map((section) => (
+          <div key={section.id} className='border-b border-gray-300 pb-4'>
+            <div className='flex items-center gap-3 cursor-pointer' onClick={() => toggle(section.id)}>
+              {isOpen[section.id] ? <FaAngleDown /> : <FaAngleRight />}
+              <h2 className='text-2xl font-medium'>{section.title}</h2>
             </div>
-            {data.map((ele) => (
-                <div key = {ele.id} className='my-5'>
-                    <div className='animate-slideRight flex mx-5'>
-                        <button  onClick={() => toggleIntro(ele.id)}>{isIntroOpen[ele.id] ? <FaAngleDown/> : <FaAngleRight/> }</button>
-                        <h1 className='w-screen  border-b-1 py-3 pl-3 text-3xl font-medium'>{ele.title}</h1>
-                    </div>
-                    <CSSTransition in={isIntroOpen[ele.id]} timeout={200} classNames="my-node" unmountOnExit>
-                        <p dangerouslySetInnerHTML={{ __html: ele.content }} className='mx-9 pt-5'/>
-                    </CSSTransition>
-                </div>
-            ))}
-        </div>
-    )
-}
+            <CSSTransition in={isOpen[section.id]} timeout={200} classNames="my-node" unmountOnExit>
+              <div className='pl-7 pt-3' dangerouslySetInnerHTML={{ __html: section.content }} />
+            </CSSTransition>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default AboutMe;

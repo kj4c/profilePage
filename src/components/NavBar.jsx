@@ -13,25 +13,22 @@ const NavBar = () => {
       return () => navigate(path);
     }
     return (
-        <>
-            <div className="w-3/5">
-                <button onClick={routeChange('/circleProfile/')} className={`flex items-center navbar-button w-30 font-bold text-xl pl-30 ${isActive('/circleProfile/') ? 'navbar-button-selected' : ''}`}>
+        <div className="w-full flex justify-between items-center py-2">
+            <div className="flex items-center">
+                <button onClick={routeChange('/circleProfile/')} className={`flex items-center navbar-button font-bold text-xl ${isActive('/circleProfile/') ? 'navbar-button-selected' : ''}`}>
                     <p className="text-5xl"><WiAlien/></p> 
                     <span>Khye Jac</span>
                 </button>
             </div>
-            <div className="flex w-2/5">
+            <div className="flex gap-[200px] mr-8">
                 <button onClick={routeChange('/circleProfile/aboutMe')} className = {isActive('/circleProfile/aboutMe') ? "navbar-button-selected" : "navbar-button"}>
                     About Me
                 </button>
-                <button onClick={routeChange('/circleProfile/hobbies')} className = {isActive('/circleProfile/hobbies') ? "navbar-button-selected" : "navbar-button"}>
-                    Hobbies
+                <button onClick={routeChange('/circleProfile/projects')} className = {isActive('/circleProfile/projects') ? "navbar-button-selected" : "navbar-button"}>
+                    Projects
                 </button>
-                {/* <button onClick={routeChange('/circleProfile/music')} className = {isActive('/circleProfile/music') ? "navbar-button-selected" : "navbar-button"}>
-                    Music
-                </button> */}
             </div>
-        </>
+        </div>
     )
 }
 

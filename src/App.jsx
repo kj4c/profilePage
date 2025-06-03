@@ -3,7 +3,7 @@ import { Routes, Route, useLocation} from "react-router-dom";
 import {
   HomePage,
   AboutMe,
-  Hobbies,
+  Projects,
   Music,
   NavBar
 } from './pages';
@@ -18,7 +18,7 @@ function App() {
   return (
     <> 
       {location.pathname !== '/circleProfile/' &&
-        <div className="flex justify-between bg-primary text-white w-screen h-20 items-center">
+        <div className="flex bg-primary text-white h-20 items-center">
           <NavBar/>
         </div>
       }
@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path = '/circleProfile/' element = {<HomePage />}/>
           <Route path = '/circleProfile/aboutMe' element = {<AboutMe />}></Route>
-          <Route path='/circleProfile/hobbies' element={<Hobbies />} /> 
+          <Route path='/circleProfile/projects' element={<Projects />} /> 
           <Route path='/circleProfile/music' element={<Music />} /> 
         </Routes>
       </div>
