@@ -17,7 +17,7 @@ function App() {
 
   return (
     <> 
-      {location.pathname !== '/circleProfile/' &&
+      {location.pathname !== '/' &&
         <div className="flex bg-primary text-white h-20 items-center">
           <NavBar/>
         </div>
