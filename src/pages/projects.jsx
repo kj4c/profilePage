@@ -18,7 +18,7 @@ Nominated for the Optiver Prize for best project of the cohort.`
 const airtable = `A performant Airtable-like application built using the T3 Stack (Next.js, TypeScript, tRPC, TailwindCSS), TanStack Table, and PostgreSQL. 
 Users can log in via Google, create "bases" and dynamically define tables with editable text/number columns. 
 Built-in virtualized scrolling supports datasets up to 1 million rows without performance loss. 
-Users can create and save views with filters, sorting, column visibility toggles, and full-text search—all processed at the database level for scalability. 
+Users can create and save views with filters, sorting, column visibility toggles, and full-text search, all processed at the database level for scalability. 
 The project is deployed on Vercel and demonstrates strong frontend optimization and backend querying techniques.`
 
 const ProjectCard = ({ image, title, description, reverse, link }) => (
@@ -42,7 +42,7 @@ const Projects = () => {
       <div className="bg-secondary/10 dark:bg-secondary/30">
         <ProjectCard image={propexPic} title="Propex" description={propex} reverse={true} link="https://alphas-propex.vercel.app/" />
       </div>
-      <ProjectCard image={airtablePic} title="Airtable Visualizer" description={airtable} reverse={false} link="https://airtable-69ry.vercel.app/" />
+      <ProjectCard image={airtablePic} title="Airtable Clone" description={airtable} reverse={false} link="https://airtable-69ry.vercel.app/" />
     </section>
   );
 };
