@@ -24,15 +24,14 @@ function App() {
       }
       <div>
         <Routes>
-          <Route path = '/circleProfile/' element = {<HomePage />}/>
-          <Route path = '/circleProfile/aboutMe' element = {<AboutMe />}></Route>
-          <Route path='/circleProfile/projects' element={<Projects />} /> 
-          <Route path='/circleProfile/music' element={<Music />} /> 
+          <Route path = '/' element = {<HomePage />}/>
+          <Route path = '/aboutMe' element = {<AboutMe />}></Route>
+          <Route path='/projects' element={<Projects />} /> 
         </Routes>
       </div>
     </>
   );
-  
+
 }
 
 export default App;
